@@ -1,25 +1,39 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 
+<div class="text-center mb-5">
+    <h1>Witaj w mojej bibliotece filmów</h1>
+    <p class="lead">Znajdziesz tutaj tylko najlepsze tytuły!</p>
+</div>
+
+<div class="mb-4 text-center">
+    {% for key, value in movie_lists.items() %}
+        <a href="/?list={{ key }}"
+           class="btn {% if key == selected_list %}btn-primary{% else %}btn-outline-primary{% endif %} me-2">
+            {{ value }}
+        </a>
+    {% endfor %}
+</div>
+
 <div class="row">
-   <div class="col-lg-12 text-center">
-       <h1 class="mt-5">Witaj w mojej bibliotece filmów</h1>
-       <p class="lead">Znajdziesz tutaj tylko najlepsze tytuły!</p>
-   </div>
-   {% for movie in movies %}
- <div class="col-lg-3 col-md-6 mb-4">
-     <div class="card h-100">
-         <img class="card-img-top" src="https://www.schuleltern.berlin/assets/img-temp/300x500/img1.png" alt="">
-         <div class="card-body">
-             <h4 class="card-title">Tytuł filmu</h4>
-         </div>
-         <div class="card-footer text-center">
-             <a href="#" class="btn btn-primary">Pokaż więcej</a>
-         </div>
-     </div>
- </div>
-   {% endfor %}
+    {% for movie in movies %}
+    <div class="col-md-3 mb-4">
+        <div class="card h-100 shadow-sm">
+            <img src="{{ tmdb_image_url(movie.poster_path) }}" 
+                 class="card-img-top"
+                 style="height: 400px; object-fit: cover;">
+
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">{{ movie.title }}</h5>
+
+                <a href="/movie/{{ movie.id }}" class="btn btn-primary mt-auto">
+                    Pokaż więcej
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>
 
 {% endblock %}
