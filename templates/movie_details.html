@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="{{ tmdb_image_url(movie.poster_path) }}" 
+             class="img-fluid rounded shadow">
+    </div>
+
+    <div class="col-md-8">
+        <h1>{{ movie.title }}</h1>
+        <p class="text-muted">
+            {{ movie.release_date }} | ⭐ {{ movie.vote_average }}
+        </p>
+
+        <p>{{ movie.overview }}</p>
+
+        <h4 class="mt-4">Obsada:</h4>
+        <ul>
+            {% for actor in cast %}
+            <li>
+                {{ actor.name }} jako {{ actor.character }}
+            </li>
+            {% endfor %}
+        </ul>
+
+        <a href="/" class="btn btn-secondary mt-3">
+            ← Powrót
+        </a>
+    </div>
+</div>
+
+{% endblock %}
