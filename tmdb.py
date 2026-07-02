@@ -1,6 +1,6 @@
 import requests
 
-API_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2OWVmYTNhYzMyOWU0N2FjMzZhZDk4MTllY2U1NzE2NyIsIm5iZiI6MTc3MjIwNTMzNy4wNzEsInN1YiI6IjY5YTFiNTE5YTM1YWE1NWE1MGY1MmQ0YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.auBIUiTAOhz5_7zvs9460PObI5wcovC2u7YqD-KQqX0"
+API_TOKEN = ""
 
 def get_popular_movies():
     url = "https://api.themoviedb.org/3/movie/popular?language=pl-PL"
