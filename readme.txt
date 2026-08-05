@@ -27,10 +27,6 @@ API
 
 TMDb API
 
-Screenshots
-
-(screeny)
-
 Installation
 
 git clone ...
